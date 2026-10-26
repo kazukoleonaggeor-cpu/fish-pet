@@ -31,7 +31,7 @@ import kotlin.random.Random
 class OverlayService : Service() {
 
     private lateinit var wm: WindowManager
-    private lateinit var whale: WhaleView
+    private lateinit var whale: WhaleImageView
     private lateinit var lp: WindowManager.LayoutParams
     private val handler = Handler(Looper.getMainLooper())
 
@@ -92,9 +92,12 @@ class OverlayService : Service() {
 
         startForegroundCompat()
 
-        whale = WhaleView(this)
+        whale =WhaleImageView(this)
+                val dens = resources.displayMetrics.density
         lp = WindowManager.LayoutParams(
-            240, 240,
+            (110 * dens).toInt(),
+            (140 * dens).toInt(),
+     
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
             PixelFormat.TRANSLUCENT
