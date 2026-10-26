@@ -281,7 +281,7 @@ class WhaleView(c: Context) : View(c) {
         canvas.restore()
 
         val rect = RectF(cx - rw, cy - rh, cx + rw, cy + rh)
-        val bodyPath = Path().apply { addOval(rect) }
+        val bodyPath = Path().apply {addOval(rect, Path.Direction.CW) }
         canvas.drawPath(bodyPath, bodyPaint)
 
         canvas.save()
